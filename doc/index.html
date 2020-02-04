@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recetas Api Doc</title>
+</head>
+<body>
+    <h2>Docu de la Api de Recetas</h2>
+    <br>
+    <p>Todos los endpoints tienen como url base https://recetas-api-taller.herokuapp.com/</p>
+    <p>Para los casos de autenticación se debe mandar en el header le token bajo la key 'x-auth'</p>
+    <p>Las respuestas exitosas retornaran status 200. De lo contrario se retorará
+        el status http correspondiente y un mensaje de error genérico
+    </p>
+    <br>
+
+    <h3>Endpoint Usuarios</h3>
+
+    <p><b>Registro en la app POST</b></p>
+    <p>Requiere Autenticación: No</p>
+    <p>URL: 'api/usuarios/signin'</p>
+    <p>Ejemplo body</p>
+    <code>
+        {
+            "nombre": "Gabriel",
+            "apellido": "Arce",
+            "email": "correo123@yoquese.com",
+            "direccion": "Solano Garcia",
+            "password": "aa123456"
+        }
+    </code>
+
+    <p>Ejemplo respuesta</p>
+    <code>
+        {}
+    </code><br><br>
+    <p >
+        Comentarios: Todos los datos que se ven son obligatorios. Se valida formato de mail y que el password sea de largo 8 mínimo. El correo no debe existir en la base.
+    </p>
+    <br>
+
+    <p><b>Login POST</b></p>
+    <p>Requiere Autenticación: No</p>
+    <p>URL: 'api/usuarios/login'</p>
+    <p>Ejemplo body</p>
+    <code>
+        {
+            "email": "correo123@yoquese.com",
+            "password": "aa123456"
+        }
+    </code>
+
+    <p>Ejemplo respuesta</p>
+    <code>
+        {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.dsfsdfsfdsd.UEjqoGyB9vhLKBAACRTEAYfmTBA0vmb6iAvp_kxS_4s"
+        }
+    </code><br><br>
+    <p >
+        Comentarios: el token devuelto es el token que se debe mandar para autenticarse en caso de que se necesite.
+    </p>
+    <br>
+
+
+
+    <p><b>Obtener todos los usuarios GET</b></p>
+    <p>Requiere Autenticación: Si</p>
+    <p>URL: 'api/usuarios'</p>
+    <p>Ejemplo respuesta</p>
+    <code>
+        [
+        {
+        "_id": "5e39bad609733633bf056ccc",
+        "email": "correo123@yoquese.com",
+        "nombre": "Gabriel",
+        "apellido": "Arce",
+        "direccion": "Solano Garcia 1234",
+        "__v": 1
+        }
+    ]
+    </code>
+    <br><br><br>
+</body>
+</html>

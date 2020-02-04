@@ -25,6 +25,11 @@ app.use('/api', usuariosRuta);
 //app.use('/api', cuentaRuta)
 
 
+let ruta = __dirname
+ruta = ruta.substring(0, ruta.length - 6) + 'doc'
+
+app.use(express.static(ruta))
+
 app.listen(port, () => {
     console.log(`Started up at port ${port}`)
 })
