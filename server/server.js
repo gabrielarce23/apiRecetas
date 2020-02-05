@@ -7,7 +7,7 @@ const {mongoose} = require('./db/mongoose')
 
 const usuariosRuta = require('./routes/usuario-rutas');
 const cors = require('cors')
-//const cuentaRuta = require('./routes/cuenta-rutas');
+const recetaRutas = require('./routes/receta-rutas');
 const { autenticacion } = require('./middlewares/autenticacion')
 
 
@@ -22,7 +22,7 @@ app.use(bodyParser.json())
 
 app.use('/api', autenticacion)
 app.use('/api', usuariosRuta);
-//app.use('/api', cuentaRuta)
+app.use('/api', recetaRutas)
 
 
 let ruta = __dirname

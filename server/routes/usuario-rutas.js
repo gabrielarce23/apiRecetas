@@ -39,8 +39,8 @@ api.post('/usuarios/login', async (req, res) => {
         let usuario = await Usuario.findOne({email: req.body.email.toLowerCase(), password: req.body.password})
 
         if (usuario) {
-            const {tokens} = usuario;
-            res.status(200).send({ token:  tokens[0].token });
+            const {tokens, nombre, email, apellido, direccion} = usuario;
+            res.status(200).send({nombre, apellido, direccion, email, token:  tokens[0].token });
         } else {
             res.status(404).send(new ApiResponse({}, 'Usuario y/o contraseña inválidos'));
         }
