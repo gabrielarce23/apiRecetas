@@ -15,6 +15,10 @@ var RecestasSchema = mongoose.Schema({
         trim: true,
         default: Date.now()
     },
+    urlImagen: {
+        type: String,
+        required: true
+    },
     usuario:{
         type: mongoose.Schema.Types.ObjectId, ref: 'Usuario',
         require: true

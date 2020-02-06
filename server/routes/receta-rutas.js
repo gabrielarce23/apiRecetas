@@ -19,7 +19,7 @@ api.post('/recetas', async (req, res) => {
 
     try {
         
-        const recetaData = _.pick(req.body, ['preparacion', 'nombre', 'ingredientes']);
+        const recetaData = _.pick(req.body, ['preparacion', 'nombre', 'ingredientes','urlImagen']);
         recetaData.usuario = req.usuarioRequest._id;
         let receta = await new Receta(recetaData).save();
         receta = await Receta.findById(receta._id).populate('usuario',{tokens: 0, password: 0})
@@ -36,7 +36,7 @@ api.put('/recetas/:id', async (req, res) => {
     try {
         
         const recetaId = req.params.id
-        const recetaData = _.pick(req.body, ['preparacion', 'nombre', 'ingredientes']);
+        const recetaData = _.pick(req.body, ['preparacion', 'nombre', 'ingredientes', 'urlImagen']);
         recetaData.usuario = req.usuarioRequest._id;
         
         

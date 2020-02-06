@@ -58,7 +58,9 @@
 
       <p>Ejemplo respuesta</p>
       <code>
-        { "token":
+        { "_id": "5e39bad609733633bf056ccc", "email": "correo123@yoquese.com",
+        "nombre": "Gabriel", "apellido": "Arce", "direccion": "Solano Garcia
+        1234", "__v": 1, "token":
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.dsfsdfsfdsd.UEjqoGyB9vhLKBAACRTEAYfmTBA0vmb6iAvp_kxS_4s"
         } </code
       ><br /><br />
@@ -92,7 +94,9 @@
       <code>
         { "nombre": "Suprema al horno con ensalada 3", "ingredientes": [
         "suprema pollo", "tomate", "lechuga", "sal", "aceite" ], "preparacion":
-        "Se prepara y se come" }
+        "Se prepara y se come", "urlImagen":
+        "https://www.comedera.com/wp-content/uploads/2015/10/ensalada-de-pollo.jpg"
+        }
       </code>
 
       <p>Ejemplo respuesta</p>
@@ -100,14 +104,16 @@
         { "fecha": 1580873964700, "ingredientes": [ "suprema pollo", "tomate",
         "lechuga", "sal", "aceite" ], "_id": "5e3a3901703931657765b8ae",
         "preparacion": "Se prepara y se come", "nombre": "Suprema al horno con
-        ensalada 3", "usuario": { "_id": "5e39bad609733633bf056ccc", "email":
+        ensalada 3", "urlImagen":
+        "https://www.comedera.com/wp-content/uploads/2015/10/ensalada-de-pollo.jpg",
+        "usuario": { "_id": "5e39bad609733633bf056ccc", "email":
         "correo123@yoquese.com", "nombre": "Gabriel 2", "apellido": "Arce",
         "direccion": "Solano Garcia 1234", "__v": 1 }, "__v": 0 } </code
       ><br /><br />
       <p>
         Comentarios: Todos los datos que se ven son obligatorios.
-      </p>
-    </details><br>
+      </p> </details
+    ><br />
     <details>
       <summary><b>Modificar receta PUT</b></summary>
       <p>Requiere Autenticación: Si</p>
@@ -116,7 +122,9 @@
       <code>
         { "nombre": "Suprema al horno con ensalada 3", "ingredientes": [
         "suprema pollo", "tomate", "lechuga", "sal", "aceite" ], "preparacion":
-        "Se prepara y se come modificada de nuevo" }
+        "Se prepara y se come modificada de nuevo", "urlImagen":
+        "https://www.comedera.com/wp-content/uploads/2015/10/ensalada-de-pollo.jpg"
+        }
       </code>
 
       <p>Ejemplo respuesta</p>
@@ -124,16 +132,18 @@
         >{ "fecha": 1580873099841, "ingredientes": [ "suprema pollo", "tomate",
         "lechuga", "sal", "aceite" ], "_id": "5e3a35ca1d633b62a7260088",
         "preparacion": "Se prepara y se come modificada de nuevo", "nombre":
-        "Suprema al horno con ensalada 3", "usuario": { "_id":
-        "5e39bad609733633bf056ccc", "email": "correo123@yoquese.com", "nombre":
-        "Gabriel 2", "apellido": "Arce", "direccion": "Solano Garcia 123",
-        "__v": 1 }, "__v": 0 } </code
+        "Suprema al horno con ensalada 3", "urlImagen":
+        "https://www.comedera.com/wp-content/uploads/2015/10/ensalada-de-pollo.jpg",
+        "usuario": { "_id": "5e39bad609733633bf056ccc", "email":
+        "correo123@yoquese.com", "nombre": "Gabriel 2", "apellido": "Arce",
+        "direccion": "Solano Garcia 123", "__v": 1 }, "__v": 0 } </code
       ><br /><br />
       <p>
         Comentarios: Todos los datos que se ven son obligatorios. Se sustituye
-        un objeto por otro. Se debe pasar en la url en lugar de :id, el id de la receta a modificar
-      </p>
-    </details><br>
+        un objeto por otro. Se debe pasar en la url en lugar de :id, el id de la
+        receta a modificar
+      </p> </details
+    ><br />
     <details>
       <summary><b>Obtener todas las recetas GET</b></summary>
       <p>Requiere Autenticación: Si</p>
@@ -144,11 +154,13 @@
         "tomate", "lechuga", "sal", "aceite" ], "_id":
         "5e3a35ca1d633b62a7260088", "preparacion": "Se prepara y se come
         modificada de nuevo", "nombre": "Suprema al horno con ensalada 3",
+        "urlImagen":
+        "https://www.comedera.com/wp-content/uploads/2015/10/ensalada-de-pollo.jpg",
         "usuario": { "_id": "5e39bad609733633bf056ccc", "email":
         "correo123@yoquese.com", "nombre": "Gabriel 2", "apellido": "Arce",
         "direccion": "Solano Garcia 1234", "__v": 1 }, "__v": 0 } ]</code
-      >
-    </details><br>
+      > </details
+    ><br />
     <details>
       <summary><b>Obtener una receta GET</b></summary>
       <p>Requiere Autenticación: Si</p>
@@ -157,14 +169,15 @@
       <code
         >{ "fecha": 1580873099841, "ingredientes": [ "suprema pollo", "tomate",
         "lechuga", "sal", "aceite" ], "_id": "5e3a35ca1d633b62a7260088",
-        "preparacion": "Se prepara y se come modificada de nuevo", "nombre":
-        "Suprema al horno con ensalada 3", "usuario": { "_id":
+        "preparacion": "Se prepara y se come modificada de nuevo", "urlImagen":
+        "https://www.comedera.com/wp-content/uploads/2015/10/ensalada-de-pollo.jpg",
+        "nombre": "Suprema al horno con ensalada 3", "usuario": { "_id":
         "5e39bad609733633bf056ccc", "email": "correo123@yoquese.com", "nombre":
         "Gabriel 2", "apellido": "Arce", "direccion": "Solano Garcia 123",
         "__v": 1 }, "__v": 0 } </code
       ><br /><br />
       <p>
-          Se debe pasar en la url en lugar de :id, el id de la receta a modificar
+        Se debe pasar en la url en lugar de :id, el id de la receta a modificar
       </p>
     </details>
   </body>
