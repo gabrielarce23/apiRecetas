@@ -15,6 +15,13 @@ api.get('/usuarios', (req, res) => {
         .catch((e) => res.status(400).send(new ApiResponse({}, `Mensaje: ${e}`)))
 })
 
+api.get('/usuarios/token', (req, res) => {
+
+    const {password, tokens, ...usuario} = req.usuarioRequest._doc
+    res.status(200).send(usuario);
+
+})
+
 
 api.post('/usuarios/signin', async (req, res) => {
 
