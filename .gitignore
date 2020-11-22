@@ -89,3 +89,4 @@ typings/
 
 #localconfig
 server/config/config.json
+package-lock.json
