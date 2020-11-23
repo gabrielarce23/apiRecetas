@@ -8,12 +8,6 @@ const { ApiResponse } = require('../models/api-response')
 const { ObjectID } = require('mongodb')
 
 
-api.get('/usuarios', (req, res) => {
-
-    Usuario.find({},{tokens: 0, password: 0})
-        .then((usuarios) => res.status(200).send(usuarios ))
-        .catch((e) => res.status(400).send(new ApiResponse({}, `Mensaje: ${e}`)))
-})
 
 api.get('/usuarios/session', (req, res) => {
 
@@ -22,6 +16,30 @@ api.get('/usuarios/session', (req, res) => {
 
 })
 
+api.post('/usuarios/session', async (req, res) => {
+
+    try {
+        let usuario = await Usuario.findOne({email: req.body.email.toLowerCase(), password: req.body.password})
+
+        if (usuario) {
+            const {tokens, nombre, email, apellido, direccion} = usuario;
+            res.status(200).send({nombre, apellido, direccion, email, token:  tokens[0].token });
+        } else {
+            res.status(404).send(new ApiResponse({}, 'Usuario y/o contraseña inválidos'));
+        }
+
+    } catch (e) {
+        console.log('Error ',e)
+        res.status(400).send(new ApiResponse({}, `Mensaje: ${e}`))
+    }
+})
+
+api.get('/usuarios', (req, res) => {
+
+    Usuario.find({},{tokens: 0, password: 0})
+        .then((usuarios) => res.status(200).send(usuarios ))
+        .catch((e) => res.status(400).send(new ApiResponse({}, `Mensaje: ${e}`)))
+})
 
 api.post('/usuarios', async (req, res) => {
 
@@ -40,23 +58,7 @@ api.post('/usuarios', async (req, res) => {
     }
 })
 
-api.post('usuarios/session', async (req, res) => {
 
-    try {
-        let usuario = await Usuario.findOne({email: req.body.email.toLowerCase(), password: req.body.password})
-
-        if (usuario) {
-            const {tokens, nombre, email, apellido, direccion} = usuario;
-            res.status(200).send({nombre, apellido, direccion, email, token:  tokens[0].token });
-        } else {
-            res.status(404).send(new ApiResponse({}, 'Usuario y/o contraseña inválidos'));
-        }
-
-    } catch (e) {
-        console.log('Error ',e)
-        res.status(400).send(new ApiResponse({}, `Mensaje: ${e}`))
-    }
-})
 
 
 
