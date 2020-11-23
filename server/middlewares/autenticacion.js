@@ -1,8 +1,8 @@
 var {Usuario} = require('./../models/usuario')
 
 const authorizedEndpoints = [
-    {path: 'usuarios', method: 'post'},
-    {path: 'usuarios/session', method: 'post'}
+    {path: '/usuarios', method: 'post'},
+    {path: '/usuarios/session', method: 'post'}
 ]
 
 var autenticacion = (req, res, next) => {
