@@ -15,7 +15,7 @@ api.get('/usuarios', (req, res) => {
         .catch((e) => res.status(400).send(new ApiResponse({}, `Mensaje: ${e}`)))
 })
 
-api.get('/usuarios/token', (req, res) => {
+api.get('/usuarios/session', (req, res) => {
 
     const {password, tokens, ...usuario} = req.usuarioRequest._doc
     res.status(200).send(usuario);
@@ -23,7 +23,7 @@ api.get('/usuarios/token', (req, res) => {
 })
 
 
-api.post('/usuarios/signin', async (req, res) => {
+api.post('/usuarios', async (req, res) => {
 
 
     try {
@@ -40,7 +40,7 @@ api.post('/usuarios/signin', async (req, res) => {
     }
 })
 
-api.post('/usuarios/login', async (req, res) => {
+api.post('usuarios/session', async (req, res) => {
 
     try {
         let usuario = await Usuario.findOne({email: req.body.email.toLowerCase(), password: req.body.password})
