@@ -1,14 +1,15 @@
 var {Usuario} = require('./../models/usuario')
 
 const authorizedEndpoints = [
-    '/usuarios/session',
-    '/usuarios/session'
+    {path: 'usuarios', method: 'post'},
+    {path: 'usuarios/session', method: 'post'}
 ]
 
 var autenticacion = (req, res, next) => {
     
-    if( authorizedEndpoints.includes(req.url)){
-      
+    if(authorizedEndpoints.find(
+        ae => ae.path === req.url && ae.method === req.method.toLowerCase()
+    )){
         next()
     }else{
         var token = req.header('x-auth')
