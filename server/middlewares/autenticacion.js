@@ -1,8 +1,8 @@
 var {Usuario} = require('./../models/usuario')
 
 const authorizedEndpoints = [
-    '/usuarios/login',
-    '/usuarios/signin'
+    '/usuarios/session',
+    '/usuarios/session'
 ]
 
 var autenticacion = (req, res, next) => {
@@ -12,9 +12,8 @@ var autenticacion = (req, res, next) => {
         next()
     }else{
         var token = req.header('x-auth')
-      
         Usuario.findByToken(token).then((usuario) => {
-            
+
             if (!usuario) {
                 return Promise.reject()
             }
